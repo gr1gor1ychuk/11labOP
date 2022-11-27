@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Laptop {
+    char *company;
+    char *screenSize;
+    char *screenResolution;
+    char *processor;
+    char *memoryRAM;
+    char *storageType;
+    char *storageSize;
+    char *cardGraphic;
+    char *capacityAcc;
+    char *price;
+    int id;
+};
+
+int main()
+{
+	int i = 0, n = 7;
+
+	struct Laptop arr[n];
+
+	arr[0].id = 1; arr[0].company = "Dell XPS"; arr[0].screenSize = "13.4-inch"; arr[0].screenResolution = "2160px"; arr[0].processor = "Intel Core i7-1185G7";
+    arr[0].memoryRAM = "16GB"; arr[0].storageType = "SSD"; arr[0].storageSize = "512GB"; arr[0].cardGraphic = "Intel Iris Xe Graphics"; arr[0].price = "999$";
+
+    arr[1].id = 2; arr[1].company = "Apple MacBook Pro"; arr[1].screenSize = "13.3-inch"; arr[1].screenResolution = "1600px"; arr[1].processor = "Apple M2";
+    arr[1].memoryRAM = "16GB"; arr[1].storageType = "SSD"; arr[1].storageSize = "1TB"; arr[1].cardGraphic = "Apple M2 GPU"; arr[1].price = "1149$";
+
+    arr[2].id = 3; arr[2].company = "Acer Swift 5"; arr[2].screenSize = "14-inch"; arr[2].screenResolution = "2560px"; arr[2].processor = "Intel Core i7-1260P";
+    arr[2].memoryRAM = "16GB"; arr[2].storageType = "SSD"; arr[2].storageSize = "1TB"; arr[2].cardGraphic = "Integrated Intel Iris Xe Graphics"; arr[2].price = "1500$";
+
+    arr[3].id = 4; arr[3].company = "Apple MacBook Air"; arr[3].screenSize = "13-inch"; arr[3].screenResolution = "1664px"; arr[3].processor = "Apple M2";
+    arr[3].memoryRAM = "8GB"; arr[3].storageType = "SSD"; arr[3].storageSize = "1TB"; arr[3].cardGraphic = "Apple M2 GPU"; arr[3].price = "1049$";
+
+    arr[4].id = 5; arr[4].company = "HP Envy"; arr[4].screenSize = "13.3-inch"; arr[4].screenResolution = "1080px"; arr[4].processor = "Intel Core i5-1135G7";
+    arr[4].memoryRAM = "16GB"; arr[4].storageType = "SSD"; arr[4].storageSize = "256GB"; arr[4].cardGraphic = "Iris Xe Graphics"; arr[4].price = "899$";
+
+    arr[5].id = 6; arr[5].company = "Microsoft Surface Laptop 4"; arr[5].screenSize = "15-inch"; arr[5].screenResolution = "1504px"; arr[5].processor = "AMD Ryzen 7 4980U";
+    arr[5].memoryRAM = "16GB"; arr[5].storageType = "SSD"; arr[5].storageSize = "512GB"; arr[5].cardGraphic = "AMD Radeon"; arr[5].price = "999$";
+
+    arr[6].id = 7; arr[6].company = "Samsung Galaxy Book 2 Pro"; arr[6].screenSize = "15.6-inch"; arr[6].screenResolution = "1080px"; arr[6].processor = "Intel Core i7-1260P";
+    arr[6].memoryRAM = "16GB"; arr[6].storageType = "SSD"; arr[6].storageSize = "1TB"; arr[6].cardGraphic = "Intel Xe Graphics"; arr[6].price = "1049$";
+
+
+
+    printf(" \n");
+	printf("Top 7 Laptops:\n");
+    printf(" \n");
+	for (i = 0; i < n; i++) {
+		printf("%d %s (Screen Size - %s) (Screen Resolution - %s) (CPU - %s) (RAM - %s) (Storage - %s %s) (GPU - %s) (Price - %s)\n",
+			arr[i].id, arr[i].company, arr[i].screenSize, arr[i].screenResolution, arr[i].processor, arr[i].memoryRAM, arr[i].storageType, arr[i].storageSize, arr[i].cardGraphic, arr[i].price);
+	}
+
+    int y;
+
+    printf(" \n");
+	printf("Choose Any(1-7): \n");
+    scanf("%d", &y);
+
+    int x = y - 1;
+
+    if (x >= 0 && x < 8)
+        {
+        printf(" \n");
+        printf("%d %s (Screen Size - %s) (Screen Resolution - %s) (CPU - %s) (RAM - %s) (Storage - %s %s) (GPU - %s) (Price - %s)\n",
+			arr[x].id, arr[x].company, arr[x].screenSize, arr[x].screenResolution, arr[x].processor, arr[x].memoryRAM, arr[x].storageType, arr[x].storageSize, arr[x].cardGraphic, arr[x].price);
+        printf(" \n");
+        }
+    else
+        {
+        printf(" \n");
+        printf("There's no laptop in this top, pick another number.");
+        printf(" \n");
+        }
+        
+	return 0;
+}
