@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Players {
+    char *surname[16];
+	char name[16];
+    char height[16];
+    char weight[16];
+	int age;
+    char hairColor[16];
+	int id;
+};
+
+
+int comparator(const void* p, const void* q)
+{
+	return (((struct Players*)q)->age - ((struct Players*)p)->age);
+}
+
+int main()
+{
+
+    int n = 7;
+    struct Players arr[n];
+
+    printf(" \n");
+    printf("Enter 7 surname, name, height, weight, age and hair color!\n");
+    printf(" \n");
+    printf("ID\tSurname\tName\tHeight\tWeight\tAge\tHair Color\n");
+
+        for (int i = 0; i < n; i++)
+            {
+            scanf("%d%s%s%s%s%d%s", &arr[i].id, arr[i].surname, arr[i].name, arr[i].height, arr[i].weight, &arr[i].age, arr[i].hairColor);
+            }
+
+	printf("Unsorted Players Records:\n");
+	for (int i = 0; i < n; i++) {
+		printf("%s %s (Height - %s) (Weight - %s) (Age - %d) (Hair Color - %s)\n",
+			arr[i].surname, arr[i].name, arr[i].height, arr[i].weight, arr[i].age, arr[i].hairColor);
+	}
+
+	qsort(arr, n, sizeof(struct Players), comparator);
+
+	printf("\n\nStudent Players sorted by Age:\n");
+	for (int i = 0; i < n; i++) {
+		printf("%s %s (Height - %s) (Weight - %s) (Age - %d) (Hair Color - %s)\n",
+			arr[i].surname, arr[i].name, arr[i].height, arr[i].weight, arr[i].age, arr[i].hairColor);
+	}
+
+	return 0;
+}
